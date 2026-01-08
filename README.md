@@ -1,46 +1,46 @@
-# Ingress NGINX Retirement
+# Ingress NGINX Controller (Facets.cloud Fork)
 
-## Retiring
+## About This Fork
 
-[What You Need to Know about Ingress NGINX Retirement](https://www.kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/):
+This is a community-maintained fork of [kubernetes/ingress-nginx](https://github.com/kubernetes/ingress-nginx), created to provide continued security maintenance beyond the upstream project's retirement in March 2026.
 
-* Best-effort maintenance will continue until March 2026.
-* Afterward, there will be no further releases, no bugfixes, and no updates to resolve any security vulnerabilities that may be discovered.
-* Existing deployments of Ingress NGINX will not be broken.
-  * Existing project artifacts such as Helm charts and container images will remain available.
+### Why This Fork?
+
+The upstream Kubernetes ingress-nginx project announced [retirement](https://www.kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/) with best-effort maintenance ending in March 2026. Several organizations using ingress-nginx will need a longer window to complete their migration to alternatives like Gateway API.
+
+This fork aims to:
+- **Extend the maintenance window** until January 1st, 2027
+- **Provide security fixes** for critical and high-severity CVEs
+- **Maintain compatibility** with supported Kubernetes versions
+
+---
 
 # Ingress NGINX Controller
 
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/5691/badge)](https://bestpractices.coreinfrastructure.org/projects/5691)
-[![Go Report Card](https://goreportcard.com/badge/github.com/kubernetes/ingress-nginx)](https://goreportcard.com/report/github.com/kubernetes/ingress-nginx)
-[![GitHub license](https://img.shields.io/github/license/kubernetes/ingress-nginx.svg)](https://github.com/kubernetes/ingress-nginx/blob/main/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/kubernetes/ingress-nginx.svg)](https://github.com/kubernetes/ingress-nginx/stargazers)
+[![GitHub license](https://img.shields.io/github/license/Facets-cloud/ingress-nginx.svg)](https://github.com/Facets-cloud/ingress-nginx/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/Facets-cloud/ingress-nginx.svg)](https://github.com/Facets-cloud/ingress-nginx/stargazers)
 
 ## Overview
 
-ingress-nginx was an Ingress controller for Kubernetes using [NGINX](https://www.nginx.org/) as a reverse proxy and load
-balancer.
+ingress-nginx is an Ingress controller for Kubernetes using [NGINX](https://www.nginx.org/) as a reverse proxy and load balancer.
 
 [Learn more about Ingress on the Kubernetes documentation site](https://kubernetes.io/docs/concepts/services-networking/ingress/).
 
-## Usage warnings
+## Usage Recommendations
 
-If you are not already using ingress-nginx, you should not be deploying it as it is [not being developed](#retiring). Instead you should identify a [Gateway API](https://gateway-api.sigs.k8s.io/guides/) implementation and use it.
+For new projects, consider using [Gateway API](https://gateway-api.sigs.k8s.io/guides/) implementations as they represent the future of Kubernetes ingress. This fork is intended for organizations with existing ingress-nginx deployments who need additional time to migrate.
 
 Do not use in multi-tenant Kubernetes production installations. This project assumes that users that can create Ingress objects are administrators of the cluster. See the [FAQ](https://kubernetes.github.io/ingress-nginx/faq/#faq) for more.
 
 ## Troubleshooting
 
-If you encounter issues, review the [troubleshooting docs](docs/troubleshooting.md),
-[search for an issue](https://github.com/kubernetes/ingress-nginx/issues), or talk to us on the
-[#ingress-nginx-users channel](https://kubernetes.slack.com/messages/ingress-nginx-users) on the Kubernetes Slack server.
+If you encounter issues, review the [troubleshooting docs](docs/troubleshooting.md) or [search for an issue](https://github.com/Facets-cloud/ingress-nginx/issues). You can also check the [upstream issues](https://github.com/kubernetes/ingress-nginx/issues) for historical context.
 
 ## Changelog
 
-See [the list of releases](https://github.com/kubernetes/ingress-nginx/releases) for all changes.
-For detailed changes for each release, please check the [changelog-$version.md](./changelog) file for the release version.
-For detailed changes on the `ingress-nginx` helm chart, please check the changelog folder for a specific version.
-[CHANGELOG-$current-version.md](./charts/ingress-nginx/changelog) file.
+See [this fork's releases](https://github.com/Facets-cloud/ingress-nginx/releases) for changes made in this fork. For historical changes, see the [upstream releases](https://github.com/kubernetes/ingress-nginx/releases).
+
+For detailed changes for each release, check the [changelog](./changelog) folder.
 
 ### Supported Versions table
 
@@ -103,21 +103,14 @@ to upgrade to the stable Ingress API before upgrading to Kubernetes 1.22.
 
 Thanks for taking the time to join our community and start contributing!
 
-- This project adheres to the [Kubernetes Community Code of Conduct](https://git.k8s.io/community/code-of-conduct.md).
-  By participating in this project, you agree to abide by its terms.
-- **Contributing**: Documentation contributions are welcome.
-
-  - Read [`CONTRIBUTING.md`](CONTRIBUTING.md) for information about the workflow that we
-    expect and instructions on the developer certificate of origin that we require.
-  - Join our Kubernetes Slack channel for developer discussion : [#ingress-nginx-dev](https://kubernetes.slack.com/archives/C021E147ZA4).
-  - Submit GitHub issues for documentation problems.
-    - Please make sure to read the [Issue Reporting Checklist](https://github.com/kubernetes/ingress-nginx/blob/main/CONTRIBUTING.md#issue-reporting-guidelines) before opening an issue. Issues not conforming to the guidelines **may be closed immediately**.
+- **Contributing**: Contributions are welcome, especially security fixes and Kubernetes compatibility updates.
+  - Read [`CONTRIBUTING.md`](CONTRIBUTING.md) for information about the workflow.
+  - Submit [GitHub issues](https://github.com/Facets-cloud/ingress-nginx/issues) for bugs or security concerns.
 
 - **Support**:
-
-  - Join the [#ingress-nginx-users](https://kubernetes.slack.com/messages/CANQGM8BA/) channel inside the [Kubernetes Slack](http://slack.kubernetes.io/) to ask questions or get support from the maintainers and other users.
-  - The [GitHub issues](https://github.com/kubernetes/ingress-nginx/issues) in the repository are **exclusively** for bug reports and feature requests.
+  - Open an issue in [this repository](https://github.com/Facets-cloud/ingress-nginx/issues) for questions specific to this fork.
+  - For general ingress-nginx questions, the [Kubernetes Slack #ingress-nginx-users](https://kubernetes.slack.com/messages/CANQGM8BA/) channel may still be helpful.
 
 ## License
 
-[Apache License 2.0](https://github.com/kubernetes/ingress-nginx/blob/main/LICENSE)
+[Apache License 2.0](LICENSE)
